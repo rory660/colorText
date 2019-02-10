@@ -89,7 +89,7 @@ coloriseFunction(color, effects = [])
 A decorator that takes a function as an argument.
 
 #### Example:
-The following code is used in the module to create `printRed(text, \*\*kwargs)`:
+The following code is used in the module to create `printRed(text, **kwargs)`:
 ```python
 @coloriseFunction(RED, [BOLD])
 def printRed(text, **kwargs):
