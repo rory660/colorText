@@ -34,32 +34,32 @@ def coloriseText(text, color, effects = []):
 	return _generateEscapeSequence(color, effects) + text + _generateEscapeSequence(DEFAULT)
 
 # Sets the color and effects currently in use in the terminal
-def setTextColor(color = 0, effects = []):
+def setColorMode(color = 0, effects = []):
 	print(_generateEscapeSequence(color, effects), end = "")
 
-# Decorator used to wrap functions with setTextColor, allowing functions to be ran in specific color and text effect modes
+# Decorator used to wrap functions with setColorMode, allowing functions to be ran in specific color and text effect modes
 def coloriseFunction(color, effects = []):
 	def decorator(func):
 		def wrapper(*args, **kwargs):
-			setTextColor(color, effects)
+			setColorMode(color, effects)
 			result = func(*args, **kwargs)
-			setTextColor(DEFAULT)
+			setColorMode(DEFAULT)
 			return result
 		return wrapper
 	return decorator
 
 # Runs a function with the terminal with a specific color and set of effects.
 def runFunctionColored(func, color, effects, *args, **kwargs):
-	setTextColor(color, effects)
+	setColorMode(color, effects)
 	result = func(*args, **kwargs)
-	setTextColor(DEFAULT)
+	setColorMode(DEFAULT)
 	return result
 
 # prints a given text string with a specific color and set of effects. Can accept the same kwargs as print()
 def printColored(text, color, effects = [], **kwargs):
 	runFunctionColored(print, color, effects, text, **kwargs)
 
-# Print functions for each color. print() is decorated with each color respectively.
+# Print functions for each 4-bit color. print() is decorated with each color respectively.
 @coloriseFunction(BLACK, [BOLD])
 def printBlack(text, **kwargs):
 	print(text, **kwargs)
