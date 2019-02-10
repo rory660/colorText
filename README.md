@@ -1,5 +1,5 @@
 # colorText.py
-Python module that handles ANSI colour codes and text effects
+Python module that handles ANSI color codes and text effects.
 
 ## Functions
 
@@ -8,11 +8,11 @@ Python module that handles ANSI colour codes and text effects
 generate8BitColor(colorValue, type = FOREGROUND)
 ```
 
-#### Parameters
+#### Parameters:
 + `colorValue`: Integer value between 0 and 255 (inclusive) corresponding to the color.
 + `type = FOREGROUND`: type of colour to generate (can be `colorText.FOREGROUND` or `colorText.BACKGROUND`)
 
-#### Return
+#### Return:
 A string containing the color value for use in an ANSI escape sequence.
 
 ---
@@ -21,13 +21,13 @@ A string containing the color value for use in an ANSI escape sequence.
 generateRgbColor(red, green, blue, type = FOREGROUND)
 ```
 
-#### Parameters
+#### Parameters:
 + `red`: Integer value between 0 and 255 (inclusive) corresponding to the red level.
 + `green`: Integer value between 0 and 255 (inclusive) corresponding to the green level.
 + `blue`: Integer value between 0 and 255 (inclusive) corresponding to the blue level.
 + `type = FOREGROUND`: type of colour to generate (can be `colorText.FOREGROUND` or `colorText.BACKGROUND`)
 
-#### Return
+#### Return:
 A string containing the color value for use in an ANSI escape sequence.
 
 ---
@@ -36,11 +36,11 @@ A string containing the color value for use in an ANSI escape sequence.
 combineFgBgColor(fg, bg)
 ```
 
-#### Parameters
+#### Parameters:
 + `fg`: Foreground color as a string (e.g. `colorText.BLUE`, `generate8BitColor(180)`, etc).
 + `bg`: Background color as a string.
 
-#### Return
+#### Return:
 A string containing the combined color values for use in an ANSI escape sequence.
 
 ---
@@ -49,12 +49,12 @@ A string containing the combined color values for use in an ANSI escape sequence
 coloriseText(text, color, effects = [])
 ```
 
-#### Parameters
+#### Parameters:
 + `text`: A string of text to have the given color and list of effects applied to.
 + `color`: Color to be applied to the text string.
 + `effects = []`: A list of text effects (defined as constants, e.g. colorText.BOLD).
 
-#### Return
+#### Return:
 A string containing the original `text` string, wrapped with escape sequences to set the color and text effects.
 
 ---
@@ -66,11 +66,11 @@ Sets the terminal to print with the given color and set of effects.
 setColorMode(color = 0, effects = [])
 ```
 
-#### Parameters
+#### Parameters:
 + `color = 0`: Color mode to set the terminal to.
 + `effects = []`: A list of text effects (defined as constants, e.g. colorText.BOLD).
 
-#### Return
+#### Return:
 None.
 
 ---
@@ -81,14 +81,14 @@ Decorator factory used to wrap a function with calls to `setColorMode`, allowing
 coloriseFunction(color, effects = [])
 ```
 
-#### Parameters
+#### Parameters:
 + `color = 0`: Color mode to set the terminal to.
 + `effects = []`: A list of text effects (defined as constants, e.g. colorText.BOLD).
 
-#### Return
+#### Return:
 A decorator that takes a function as an argument.
 
-#### Example
+#### Example:
 The following code is used in the module to create `printRed(text, \*\*kwargs)`:
 ```python
 @coloriseFunction(RED, [BOLD])
@@ -105,14 +105,14 @@ Runs a function with calls to `setColorMode`, causing the function to be ran wit
 runFunctionColored(func, color, effects, *args, **kwargs)
 ```
 
-#### Parameters
+#### Parameters:
 + `func`: function to be ran.
 + `color`: Color mode to set the terminal to.
 + `effects`: A list of text effects (defined as constants, e.g. colorText.BOLD).
 + `*args`: The anonymous arguments to be passed to `func`.
 + `**kwargs`: The named arguments to be passed to `func`.
 
-#### Return
+#### Return:
 Returns the return value of `func`.
 
 ---
@@ -124,17 +124,17 @@ Prints a given string with a given color and set of text effects. Accepts the sa
 printColored(text, color, effects = [], **kwargs)
 ```
 
-#### Parameters
+#### Parameters:
 + `text`: A string of text to be printed.
 + `color`: Color for the text to be printed in.
 + `effects`: A list of text effects (defined as constants, e.g. colorText.BOLD) to be applied to `text` when printing.
 + `**kwargs`: Named arguments identical to those accepted by the `print` function.
 
-#### Return
+#### Return:
 None.
 
 ---
-### print<color>
+### print\<color\>
 
 Prints the given string in the color specified in the function name.
 
@@ -149,11 +149,11 @@ printCyan(text, **kwargs)
 printWhite(text, **kwargs)
 ```
 
-#### Parameters
+#### Parameters:
 + `text`: A string of text to be printed.
 + `**kwargs`: Named arguments identical to those accepted by the `print` function.
 
-#### Return
+#### Return:
 None.
 
 ## Constants
